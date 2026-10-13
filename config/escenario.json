@@ -1,0 +1,89 @@
+{
+  "version": "1.0 - robot Pick & Place 5 GDL (solo funcionamiento)",
+  "unidades": "longitudes en m, angulos en grados (Python y MATLAB convierten a rad)",
+  "robot": {
+    "d1": 0.3,
+    "a2": 0.35,
+    "a3": 0.3,
+    "d5": 0.15,
+    "limites_deg": [
+      [
+        -170,
+        170
+      ],
+      [
+        0,
+        180
+      ],
+      [
+        -150,
+        150
+      ],
+      [
+        -135,
+        135
+      ],
+      [
+        -180,
+        180
+      ]
+    ],
+    "nota_limites": "Parametros de diseno del robot SIMULADO (no de un robot comercial). theta2 >= 0 mantiene el brazo sobre la horizontal del hombro: con a2 > d1 un theta2 negativo lleva el codo casi al piso.",
+    "v_max_deg_s": [
+      120,
+      120,
+      150,
+      180,
+      180
+    ],
+    "a_max_deg_s2": [
+      300,
+      300,
+      400,
+      500,
+      500
+    ],
+    "nota_dinamica": "Velocidades y aceleraciones maximas por junta: parametros de diseno del robot simulado, NO datos de fabricante."
+  },
+  "pinza": {
+    "brazo_palanca_m": 0.05,
+    "phi_objetivo_deg": -90,
+    "simetria_pi": false
+  },
+  "escenario": {
+    "q_safe_deg": [
+      0,
+      90,
+      -90,
+      -90,
+      0
+    ],
+    "toma": {
+      "p": [
+        0.45,
+        -0.2,
+        0.03
+      ],
+      "psi_deg": 0
+    },
+    "colocacion": {
+      "p": [
+        0.2,
+        0.45,
+        0.1
+      ],
+      "psi_deg": 0
+    },
+    "obstaculo": {
+      "centro_xy": [
+        0.45,
+        0.15
+      ],
+      "radio": 0.06,
+      "altura": 0.25
+    },
+    "altura_aproximacion_m": 0.1,
+    "holgura_m": 0.05,
+    "nota_escenario": "altura_aproximacion_m: la pieza queda 10 cm sobre la banda (Pick) y sobre el fixture (Place); el TCP (0.13 y 0.20 m) queda bajo la altura del obstaculo (0.25 m), por lo que el camino directo lo atraviesa. holgura_m: distancia minima del eje de los eslabones al obstaculo y al piso = radio aproximado del eslabon (0.03 m) + margen de seguridad (0.02 m); cubre tambien la pieza transportada (media diagonal 0.036 m, media altura 0.025 m)."
+  }
+}
